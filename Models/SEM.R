@@ -1,8 +1,11 @@
 # Load AER library
 library(AER)
 
-table(data$job_title, data$treatment)  # Check if treatment and job_title exist
-table(data$company_size, data $experience_level)  # Check instruments
+# Check if treatment and job_title exist
+table(data$job_title, data$treatment)
+
+# Check instruments
+table(data$company_size, data $experience_level)
 
 # Define the simultaneous equations
 eq1 <- salary_in_usd ~ treatment + job_title + experience_level  # Salary equation
