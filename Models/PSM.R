@@ -5,7 +5,7 @@ data$company_size <- as.factor(data$company_size)  # Small (S), Medium (M), Larg
 data$employment_type <- as.factor(data$employment_type)  # Full-time vs Contract
 data$company_location <- as.factor(data$company_location)  # US locations
 
-# Run Propensity Score Matching Model
+# Propensity Score Matching Model
 match_out <- matchit(work_setting ~ job_title + experience_level + company_size + employment_type, 
                      data = data, method = "full", distance = "logit", ratio=2, estimand = "ATT")
 summary(match_out)
@@ -13,7 +13,7 @@ summary(match_out)
 # Extract Matched Data
 matched_data <- match.data(match_out)
 
-# Visualizing Balance
+# Visualize Balance
 plot(match_out, type = "jitter", interactive = FALSE)
 plot(match_out, type = "hist")
 
@@ -25,6 +25,7 @@ t.test(matched_data$salary_in_usd ~ matched_data$work_setting)
 ATT.Model <- lm(salary ~ work_setting * job_title + experience_level + company_size + 
                 employment_type, data = matched_data, weights = matched_data$weights)
 
+# ATT Summary
 summary(ATT.Model)
 
 match_out_ATC <- matchit(work_setting ~ job_title + experience_level + company_size + employment_type, 
@@ -38,7 +39,7 @@ ATC.Model <- lm(salary ~ work_setting * job_title + experience_level +
                 company_size + employment_type, 
                 data = matched_data_ATC, weights = matched_data_ATC$weights)
 
-# Display summary of the model
+# ATC Summary
 summary(ATC.Model)
 
 match_out_ATE <- matchit(work_setting ~ job_title + experience_level + company_size + employment_type, 
@@ -52,5 +53,5 @@ ATE.Model <- lm(salary ~ work_setting * job_title + experience_level +
                 company_size + employment_type, 
                 data = matched_data_ATC, weights = matched_data_ATE$weights)
 
-# Display summary of the model
+# ATE Summary
 summary(ATE.Model)
