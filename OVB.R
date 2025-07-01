@@ -1,6 +1,6 @@
 # Short regression (without confounder)
-Model.short <- lm(salary ~ work_setting, data = data)
-summary(Model.short)
+Model.Short <- lm(salary ~ work_setting, data = data)
+summary(Model.Short)
 
 sum(is.na(data$experience_level))  # Count of NA values
 sum(is.nan(data$experience_level)) # Count of NaN values
@@ -10,22 +10,22 @@ sum(is.infinite(data$experience_level)) # Count of Inf values
 data_clean <- na.omit(data) 
 data$experience_level <- as.numeric(as.factor(data$experience_level))
 
-Model.aux <- lm(experience_level ~ work_setting, data = data)
-summary(Model.aux)
+Model.Aux <- lm(experience_level ~ work_setting, data = data)
+summary(Model.Aux)
 
 data$experience_level <- as.factor(data$experience_level)  # Entry-level, Mid-level, Senior, Executive
 
-Model.long<-lm(salary ~ work_setting + experience_level, data = data)
-summary(Model.long)
+Model.Long<-lm(salary ~ work_setting + experience_level, data = data)
+summary(Model.Long)
 
-Gamma.long = Model.long$coefficients[3]
-Gamma.long
+Gamma.Long = Model.Long$coefficients[3]
+Gamma.Long
 
-Pi1 = Model.aux$coefficients[2]
+Pi1 = Model.Aux$coefficients[2]
 Pi1
 
-Bias.computed = Gamma.long*pi1
-Bias.computed
+Bias.Computed = Gamma.Long*pi1
+Bias.Computed
 
-percentage_bias <- (Bias.computed / mean(data$salary, na.rm = TRUE)) * 100
-percentage_bias
+Percentage.Bias <- (Bias.Computed / mean(data$salary, na.rm = TRUE)) * 100
+Percentage.Bias
