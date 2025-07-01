@@ -2,7 +2,6 @@
 install.packages("systemfit")
 library(systemfit)
 library(AER)
-library(dplyr)
 
 table(data$job_title, data$treatment)  # Check if treatment and job_title exist
 table(data$company_size, data $experience_level)  # Check instruments
