@@ -35,10 +35,10 @@ inst2 <- ~ experience_level  # Instrument for Salary (salary_in_usd)
 iv_formula <- list(eq1, eq2)
 
 # Run the 2SLS Estimation
-sim_model <- systemfit(iv_formula, method = "2SLS", inst = list(inst1, inst2), data = data)
+SEM.model <- systemfit(iv_formula, method = "2SLS", inst = list(inst1, inst2), data = data)
 
 # Print model results
-summary(sim_model)
+summary(SEM.model)
 
 cor_matrix <- cor(data %>% select_if(is.numeric))
 print(cor_matrix)
