@@ -1,6 +1,4 @@
 # Load necessary libraries
-install.packages("systemfit")
-library(systemfit)
 library(AER)
 
 table(data$job_title, data$treatment)  # Check if treatment and job_title exist
