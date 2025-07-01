@@ -1,4 +1,4 @@
-# Load necessary libraries
+# Load AER library
 library(AER)
 
 table(data$job_title, data$treatment)  # Check if treatment and job_title exist
