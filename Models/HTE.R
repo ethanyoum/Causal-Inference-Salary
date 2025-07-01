@@ -12,13 +12,13 @@ HTE.estimate <- predict(fullsample.forest)$predictions
 HTE.estimate
 
 # Compute ATE
-fullsample.ATE<-average_treatment_effect(fullsample.forest)
+fullsample.ATE <- average_treatment_effect(fullsample.forest)
 fullsample.ATE
 
 ## Estimate is -1985.684, and std error is 1681.228.
 
 # Compute feature importance
-fullsample.varimp<-variable_importance(fullsample.forest)
+fullsample.varimp <- variable_importance(fullsample.forest)
 ranked.vars <- order(fullsample.varimp, decreasing = TRUE)
 fullsample.varimp
 ranked.vars
