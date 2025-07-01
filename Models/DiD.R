@@ -77,11 +77,11 @@ jobs <- jobs %>%
   )
 
 # Run DiD model, using FE to control for experience level and comapny size
-DiD.model <- plm(
+DiD.Model <- plm(
   salary_in_usd ~ treatment * time + experience_level + company_size,
   data = jobs_panel, model = "within", effect = "individual")
 
-summary(DiD.model)
+summary(DiD.Model)
 
 
 ## ATE = -5136.8, but statistically insignificant. 
@@ -93,7 +93,7 @@ DiD.FE.Time <- plm(
   data = jobs_panel, model = "within", effect = "twoways")
 
 # Test if time-fixed effects are useful
-pFtest(DiD.FE.Time, DiD.model)
+pFtest(DiD.FE.Time, DiD.Model)
 
 ## Time-fixed effects are not useful (p-value is 0.6031)
 
@@ -102,4 +102,4 @@ DiD.Pooled <- lm(salary_in_usd ~ treatment * time + experience_level
                  + company_size, data = jobs)
 
 # Then check if DiD.model is useful
-pFtest(DiD.model, DiD.Pooled)
+pFtest(DiD.Model, DiD.Pooled)
