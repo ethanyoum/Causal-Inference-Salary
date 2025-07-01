@@ -22,10 +22,10 @@ summary(psm_effect)
 
 t.test(matched_data$salary_in_usd ~ matched_data$work_setting)
 
-ATT.model <- lm(salary ~ work_setting * job_title + experience_level + company_size + 
+ATT.Model <- lm(salary ~ work_setting * job_title + experience_level + company_size + 
                 employment_type, data = matched_data, weights = matched_data$weights)
 
-summary(ATT.model)
+summary(ATT.Model)
 
 match_out_ATC <- matchit(work_setting ~ job_title + experience_level + company_size + employment_type, 
                      data = data, method = "full", distance = "logit", ratio=2, estimand = "ATT")
@@ -34,12 +34,12 @@ summary(match_out_ATC)
 matched_data_ATC <- match.data(match_out_ATC)
 
 # Run regression on matched data (ATC)
-ATC.model <- lm(salary ~ work_setting * job_title + experience_level + 
+ATC.Model <- lm(salary ~ work_setting * job_title + experience_level + 
                 company_size + employment_type, 
                 data = matched_data_ATC, weights = matched_data_ATC$weights)
 
 # Display summary of the model
-summary(ATC.model)
+summary(ATC.Model)
 
 match_out_ATE <- matchit(work_setting ~ job_title + experience_level + company_size + employment_type, 
                      data = data, method = "full", distance = "logit", ratio=2, estimand = "ATE")
@@ -48,9 +48,9 @@ summary(match_out_ATE)
 matched_data_ATE <- match.data(match_out_ATE)
 
 # Run regression on matched data (ATC)
-ATE.model <- lm(salary ~ work_setting * job_title + experience_level + 
+ATE.Model <- lm(salary ~ work_setting * job_title + experience_level + 
                 company_size + employment_type, 
                 data = matched_data_ATC, weights = matched_data_ATE$weights)
 
 # Display summary of the model
-summary(ATE.model)
+summary(ATE.Model)
