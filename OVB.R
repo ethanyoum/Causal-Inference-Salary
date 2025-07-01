@@ -15,16 +15,16 @@ summary(Model.Aux)
 
 data$experience_level <- as.factor(data$experience_level)  # Entry-level, Mid-level, Senior, Executive
 
-Model.Long<-lm(salary ~ work_setting + experience_level, data = data)
+Model.Long <- lm(salary ~ work_setting + experience_level, data = data)
 summary(Model.Long)
 
-Gamma.Long = Model.Long$coefficients[3]
+Gamma.Long <- Model.Long$coefficients[3]
 Gamma.Long
 
-Pi1 = Model.Aux$coefficients[2]
+Pi1 <- Model.Aux$coefficients[2]
 Pi1
 
-Bias.Computed = Gamma.Long*pi1
+Bias.Computed <- Gamma.Long*pi1
 Bias.Computed
 
 Percentage.Bias <- (Bias.Computed / mean(data$salary, na.rm = TRUE)) * 100
