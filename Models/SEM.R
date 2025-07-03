@@ -1,3 +1,5 @@
+## SEM (Simultaneous Equations Model)
+
 # Load AER library
 library(AER)
 
