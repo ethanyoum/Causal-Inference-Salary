@@ -1,4 +1,4 @@
-## DiD (Difference-in-Differences)
+## DiD (Difference-in-Difference)
 
 # Before US workforce stabilization
 remote.before_stab <- jobs %>%
