@@ -1,3 +1,5 @@
+## PSM (Propensity Score Matching)
+
 data$work_setting <- as.factor(ifelse(data$work_setting == "Remote", 1, 0))  # Treatment Variable (Remote = 1, In-person = 0)
 data$job_title <- as.factor(data$job_title)  # Data Analyst vs Data Engineer
 data$experience_level <- as.factor(data$experience_level)  # Entry-level, Mid-level, Senior, Executive
