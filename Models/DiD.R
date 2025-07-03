@@ -1,4 +1,4 @@
-## Estimate ATE using DiD
+## DiD (Difference-in-Differences)
 
 # Before US workforce stabilization
 remote.before_stab <- jobs %>%
