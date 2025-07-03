@@ -1,3 +1,5 @@
+## Synthetic DiD
+
 # Prepare data for synthetic DiD
 Y <- data %>%
   select(salary_in_usd) %>%  # Outcome variable
