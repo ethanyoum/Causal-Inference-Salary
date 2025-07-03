@@ -1,3 +1,5 @@
+## HTE (Heterogeneous Treatment Effects)
+
 Y <- jobs$salary_in_usd
 W <- jobs$treatment
 X <- model.matrix(~ experience_level + company_size + job_title, 
