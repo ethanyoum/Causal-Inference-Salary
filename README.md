@@ -3,7 +3,7 @@
 
 This project investigates whether working remotely affects salaries in the U.S. data industry—and whether the impact differs between Data Analysts and Data Engineers. Using a dataset of U.S.-based tech employees from 2020–2023, we examined salary trends before and after the 2023 “workforce stabilization,” when many companies scaled back remote work.
 
-Our analysis applied causal inference techniques such as Propensity Score Matching, Difference-in-Differences, and Synthetic DiD to control for confounding factors (e.g., experience level, company size, job location). The results show that:
+This analysis applied causal inference techniques such as Propensity Score Matching, Difference-in-Differences, and Synthetic DiD to control for confounding factors (e.g., experience level, company size, job location). The results show that:
 
 * Data Analysts working remotely faced a sharp salary decline of nearly 9% post-2023.
 
